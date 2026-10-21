@@ -1,0 +1,249 @@
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .navbar {
+      background: linear-gradient(to right, #383838, #797979);
+    }
+    .sidebar {
+      height: 100vh;
+      background: linear-gradient(to right, #383838, #797979);
+      color: white;
+    }
+   
+.sidebar .nav-link {
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+/* Warna menu saat diarahkan kursor atau aktif */
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active {
+    background: linear-gradient(to right, #ffffff, #535355);
+    color: #198754;
+}
+
+ .card {
+    margin-top: 20px; /* Jarak atas untuk kartu */
+}
+.footer {
+    background: linear-gradient(to right, #383838, #797979); /* Gradasi abu-abu saat hover */
+    color: blue;
+    padding: 20px;
+    text-align: center;
+}
+
+.timeline { list-style: none; padding-left: 0; margin: 0; }
+    .timeline li { position: relative; padding-left: 32px; padding-bottom: 14px; }
+    .timeline li::before {      /* garis penghubung */
+      content: ''; position: absolute; left: 7px; top: 18px; bottom: -4px;
+      width: 2px; background: #212529;
+    }
+    .timeline li:last-child::before { display: none; }
+    .timeline li::after {       /* titik bulat */
+      content: ''; position: absolute; left: 0; top: 4px;
+      width: 16px; height: 16px; border-radius: 50%;
+      border: 2px solid #212529; background: #dee2e6;
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+        <a class="navbar-brand text-white" href="#">DASHBOARD</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto"> 
+                <li class="nav-item">
+                    <h4><a class="nav-link text-white" href="#">
+                      <i class="fas fa-bell"></i></a></li>
+                </li>
+                <h5><li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="#" 
+                    id="navbarDropdown" 
+                    role="button" 
+                    data-bs-toggle="dropdown" 
+                    aria-expanded="false">
+                        <i class="fas fa-user-circle"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" 
+                    aria-labelledby="navbarDropdown">
+
+                        <li><a class="dropdown-item" href="#">
+                            Profil Saya</a>
+                        </li>
+
+                        <li><a class="dropdown-item" href="#">
+                            Pengaturan</a>
+                        </li>
+
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">
+                            Keluar</a>
+                        </li>
+                        
+                    </ul></h5>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+</div>
+</div>
+</nav>
+<div class="d-flex">
+  <div class="sidebar p-3">
+    <h4>Menu</h4>
+    
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link active" href="#dashboard">
+          Dashboard
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#data-master">
+          Data Master
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#transaksi">
+          Transaksi
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="#laporan">
+          Laporan
+        </a>
+      </li>
+
+    </ul>
+  </div>
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h5>Selamat Datang di Dashboard</h5>
+          </div>
+          <div class="card-body">
+            <p>Ini adalah halaman dashboard Anda. Anda dapat menambahkan konten sesuai kebutuhan.</p>
+            <p>Gunakan menu di sebelah kiri untuk mengakses berbagai fitur.</p>
+          </div>
+           <!-- Baris atas: Total Tanaman + Gambar -->
+    <div class="row g-3 mb-3">
+      <div class="col-6">
+        <div class="card bg-secondary-subtle border-dark border-2 h-100">
+          <div class="card-body">
+            <h6 class="fw-bold text-uppercase">Total Tanaman</h6>
+            <div class="d-flex align-items-center gap-3">
+              <span id="totalTanaman" class="display-3 fw-bold">0</span>
+              <span class="fs-1">🌱🌱</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <div class="card border-dark border-2 h-100">
+          <!-- Placeholder gambar: kotak dengan tanda silang -->
+          <svg class="w-100 h-100" style="min-height: 150px;" preserveAspectRatio="none" viewBox="0 0 100 60">
+            <rect width="100" height="60" fill="#f8f9fa"/>
+            <line x1="0" y1="0" x2="100" y2="60" stroke="#6c757d" stroke-width="0.8"/>
+            <line x1="100" y1="0" x2="0" y2="60" stroke="#6c757d" stroke-width="0.8"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Aktivitas Terbaru -->
+    <div class="card border-dark border-2">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h6 class="fw-bold text-uppercase mb-0">Aktivitas Terbaru</h6>
+          <a href="#" id="btnLihatSemua">Lihat Semua</a>
+        </div>
+        <ul id="daftarAktivitas" class="timeline"></ul>
+      </div>
+    </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    const TOTAL_TANAMAN = 42;
+    const BATAS_AWAL = 4; // jumlah aktivitas yang tampil di awal
+
+    // Data contoh: "menit" = berapa menit yang lalu
+    const aktivitas = [
+      { teks: 'Siram Tanaman A',  menit: 1 },
+      { teks: 'Pupuk Tanaman B',  menit: 15 },
+      { teks: 'Siram Tanaman C',  menit: 60 },
+      { teks: 'Pupuk Tanaman D',  menit: 180 },
+      { teks: 'Siram Tanaman E',  menit: 1500 },
+      { teks: 'Pangkas Tanaman F', menit: 3000 },
+      { teks: 'Pupuk Tanaman G',  menit: 10000 },
+    ];
+
+    let tampilSemua = false;
+
+    const daftarEl = document.getElementById('daftarAktivitas');
+    const btnEl    = document.getElementById('btnLihatSemua');
+
+    // Ubah menit menjadi teks "x menit yang lalu", "x jam yang lalu", dst.
+    function waktuLalu(menit) {
+      if (menit < 60)    return `${menit} menit yang lalu`;
+      if (menit < 1440)  return `${Math.floor(menit / 60)} jam yang lalu`;
+      return `${Math.floor(menit / 1440)} hari yang lalu`;
+    }
+
+    function tampilkan() {
+      const daftar = tampilSemua ? aktivitas : aktivitas.slice(0, BATAS_AWAL);
+
+      daftarEl.innerHTML = daftar.map(a => `
+        <li>
+          <div class="d-flex justify-content-between">
+            <span>${a.teks}</span>
+            <small class="text-muted">${waktuLalu(a.menit)}</small>
+          </div>
+        </li>`).join('');
+
+      btnEl.textContent = tampilSemua ? 'Lihat Sedikit' : 'Lihat Semua';
+    }
+
+    // Tombol Lihat Semua: bolak-balik tampil semua / 4 terbaru
+    btnEl.addEventListener('click', function (e) {
+      e.preventDefault();
+      tampilSemua = !tampilSemua;
+      tampilkan();
+    });
+
+    // Angka total naik dari 0 sampai 42 (animasi singkat)
+    function hitungNaik(el, target) {
+      let n = 0;
+      const timer = setInterval(() => {
+        n++;
+        el.textContent = n;
+        if (n >= target) clearInterval(timer);
+      }, 25);
+    }
+
+    hitungNaik(document.getElementById('totalTanaman'), TOTAL_TANAMAN);
+    tampilkan();
+  </script>
+</body>
+</html>

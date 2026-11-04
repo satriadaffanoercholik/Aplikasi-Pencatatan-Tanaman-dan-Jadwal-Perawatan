@@ -1,61 +1,170 @@
-<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dashboard</title>
+  <title>Laporan</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
   <style>
-    body {
-      background-color: #f8f9fa;
-    }
-    .navbar {
-      background: linear-gradient(to right, #383838, #797979);
-    }
-    .sidebar {
-      height: 100vh;
-      background: linear-gradient(to right, #383838, #797979);
-      color: white;
-    }
-   
-.sidebar .nav-link {
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 5px;
-}
+   body {
+            margin: 0;
+            background-color: lightblue;
+            font-family: Arial, sans-serif;
+        }
 
-/* Warna menu saat diarahkan kursor atau aktif */
-.sidebar .nav-link:hover,
-.sidebar .nav-link.active {
-    background: linear-gradient(to right, #ffffff, #535355);
-    color: #198754;
-}
+        .navbar {
+            background: linear-gradient(to right, #383838, #797979);
+            position: relative;
+            min-height: 65px;
+            padding: 10px 20px;
+        }
 
- .card {
-    margin-top: 20px; /* Jarak atas untuk kartu */
-}
-.footer {
-    background: linear-gradient(to right, #383838, #797979); /* Gradasi abu-abu saat hover */
-    color: blue;
-    padding: 20px;
-    text-align: center;
-}
+        .navbar-brand {
+            color: white;
+            font-weight: bold;
+        }
+
+        .navbar-brand img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            margin-right: 8px;
+        }
+
+        .navbar form {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 0;
+            padding: 5px;
+            border: 1px solid white;
+            border-radius: 8px;
+            background-color: transparent;
+            width: 300px;
+            max-width: 35%;
+        }
+
+        .navbar form input {
+            background-color: transparent;
+            color: white;
+            border: none;
+            box-shadow: none;
+        }
+
+        .navbar form input::placeholder {
+            color: #eeeeee;
+        }
+
+        .navbar form input:focus {
+            background-color: transparent;
+            color: white;
+            box-shadow: none;
+        }
+
+        .navbar form button {
+            color: white;
+            border: none;
+        }
+
+        .navbar form button:hover {
+            color: #90ee90;
+        }
+
+        .user-button {
+            color: white;
+            border: none;
+            font-size: 22px;
+        }
+
+        .user-button:hover {
+            color: #90ee90;
+        }
+
+        .sidebar {
+            min-height: calc(100vh - 65px);
+            background: linear-gradient(to bottom, #797979, #383838);
+            padding: 20px 12px;
+        }
+
+        .sidebar .nav-link {
+            display: block;
+            color: white;
+            padding: 12px;
+            border-radius: 5px;
+            margin-bottom: 8px;
+            transition: 0.2s;
+        }
+
+        .sidebar .nav-link i {
+            width: 25px;
+            text-align: center;
+            margin-right: 8px;
+        }
+
+        .sidebar .nav-link:hover,
+        .sidebar .nav-link.active {
+            background: linear-gradient(to right, #ffffff, #dddddd);
+            color: #198754;
+        }
+
+        /* ===== KONTEN UTAMA ===== */
+        .main-content {
+            padding: 25px;
+            min-height: calc(100vh - 65px);
+        }
+
+        .page-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333333;
+        }
+
+        .judul-dashboard {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .judul-halaman {
+            font-size: 12px;
+            font-weight: bold;
+            color: #555555;
+        }
+
+        .small-muted {
+            font-size: 14px;
+            color: #666666;
+        }
   </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
-        <a class="navbar-brand text-white" href="#">DASHBOARD</a>
+        <a class="navbar-brand d-flex align-items-center text-white" href="#">
+          <img src="Logo.png" width="50" height="50" class="d-inline-block align-top me-2" alt="">
+          Aplikasi Pencatatan Tanaman</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span clas s="navbar-toggler-icon"></span>
         </button>
+         <form class="d-flex mx-auto" role="search" onsubmit="return false;">
+                    <input
+                        class="form-control me-2"
+                        type="search"
+                        placeholder="Search"
+                        aria-label="Search"
+                        style="width: 250px;"
+                    >
+                    <button class="btn btn-outline-light" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto"> 
                 <li class="nav-item">
                     <h4><a class="nav-link text-white" href="#">
-                      <i class="fas fa-bell"></i></a></li>
+                      <i class=""></i></a></li>
                 </li>
                 <h5><li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-white" href="#" 
@@ -77,7 +186,7 @@
                         </li>
 
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">
+                        <li><a class="dropdown-item" href="Login.html">
                             Keluar</a>
                         </li>
                         
@@ -96,23 +205,23 @@
     
     <ul class="nav flex-column">
       <li class="nav-item">
-        <a class="nav-link" href="#dashboard">
+        <a class="nav-link " href="Dashboard.html">
           Dashboard
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#data-master">
+        <a class="nav-link" href="Data_master.html">
           Data Master
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#transaksi">
+        <a class="nav-link" href="Transaksi.html">
           Transaksi
         </a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link active" href="#laporan">
+        <a class="nav-link" href="Laporan.html">
           Laporan
         </a>
       </li>
@@ -122,154 +231,95 @@
   <div class="container mt-4">
     <div class="row">
       <div class="col-md-12">
-        <div class="card">
-          <div class="card-header">
-            <h3>Laporan</h3>
           </div>
-          <div class="card-body">
-          </div>
-          <!-- Panel Filter -->
-    <div class="card bg-secondary-subtle border-secondary mb-3">
-      <div class="card-body">
-        <h6 class="mb-3">Filter Laporan</h6>
-        <div class="row g-2 align-items-center">
+      <main class="main-content">
 
-          <div class="col-auto">
-            <label for="periode" class="col-form-label-sm">Periode:</label>
+    <h1 class="page-title">Laporan</h1>
+    <section class="panel mb-3">
+      <div class="panel-body">
+        <div class="row g-3 align-items-end">
+          <div class="col-md-4">
+            <label class="form-label" 
+                                  for="reportStart">Periode Mulai
+          </label>
+            <input class="form-control" 
+                    type="date" 
+                    id="reportStart"
+            >
           </div>
-          <div class="col-auto">
-            <select id="periode" class="form-select form-select-sm">
-              <option value="bulan-ini" selected>Bulan Ini</option>
-              <option value="bulan-lalu">Bulan Lalu</option>
-              <option value="tahun-ini">Tahun Ini</option>
-              <option value="semua">Semua</option>
+          <div class="col-md-4">
+            <label class="form-label" 
+              for="reportEnd">Periode Akhir
+            </label>
+            <input class="form-control" 
+              type="date" 
+              id="reportEnd">
+          </div>
+          <div class="col-md-4">
+            <label class="form-label" 
+              for="reportType">Jenis Laporan
+            </label>
+            <select class="form-select" 
+              id="reportType">
+              <option>Semua</option>
+              <option>Siram</option>
+              <option>Pupuk</option>
+              <option>Pemangkasan</option>
+              <option>Ganti Media Tanam</option>
             </select>
           </div>
-
-          <div class="col-auto ms-2">
-            <label for="kategori" class="col-form-label-sm">Kategori:</label>
+          <div class="col-12"><button class="btn btn-dark" id="applyReport" type="button">Tampilkan Laporan</button></div>
+        </div>
+      </div>
+    </section>
+    <div class="row g-3 mb-3">
+      <div class="col-md-6">
+        <div class="panel p-3 d-flex align-items-center gap-3">
+          <span class="fs-1">🌱</span>
+          <div>
+            <div class="small-muted">Total Tanaman</div>
+            <div class="fs-2 fw-bold" 
+              id="reportPlantCount">0</div>
           </div>
-          <div class="col-auto">
-            <select id="kategori" class="form-select form-select-sm">
-              <option value="semua" selected>Semua</option>
-              <option value="Pemupukan">Pemupukan</option>
-              <option value="Penyiraman">Penyiraman</option>
-              <option value="Pestisida">Pestisida</option>
-              <option value="Peralatan">Peralatan</option>
-            </select>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="panel p-3 d-flex align-items-center gap-3">
+          <span class="fs-1">▤</span>
+          <div><div class="small-muted">Total Perawatan dalam Periode</div>
+            <div class="fs-2 fw-bold" 
+              id="reportCareCount">0</div>
           </div>
-
-          <div class="w-100"></div>
-
-          <div class="col-auto">
-            <label for="lokasi" class="col-form-label-sm">Lokasi:</label>
-          </div>
-          <div class="col-auto">
-            <select id="lokasi" class="form-select form-select-sm">
-              <option value="semua">Semua</option>
-              <option value="Kebun Depan" selected>Kebun Depan</option>
-              <option value="Kebun Belakang">Kebun Belakang</option>
-              <option value="Greenhouse">Greenhouse</option>
-            </select>
-          </div>
-
-          <div class="col-auto">
-            <button id="btnAplikasikan" class="btn btn-outline-dark btn-sm">Aplikasikan</button>
-          </div>
-
         </div>
       </div>
     </div>
-
-    <!-- Tabel Laporan -->
-    <table class="table table-bordered border-dark align-middle mb-0">
-      <thead class="table-secondary">
-        <tr>
+    <section class="panel mb-3">
+      <div class="panel-heading">Grafik Aktivitas Perawatan</div>
+      <div class="panel-body" 
+        id="reportBars">
+        <span class="text-secondary">Data grafik akan ditampilkan di sini.</span>
+      </div>
+    </section>
+    <section class="panel" data-searchable-table>
+      <div class="panel-heading">Rincian Laporan</div>
+      <div class="table-responsive"><table class="table table-bordered table-hover">
+        <thead><tr><th>No</th>
+          <th>Tanggal</th>
+          <th>Nama Tanaman</th>
+          <th>Aktivitas</th>
           <th>Keterangan</th>
-          <th>Kategori</th>
-          <th>Lokasi</th>
-          <th class="text-center">Terlaksana</th>
-          <th class="text-center">Tidak Terlaksana</th>
         </tr>
-      </thead>
-      <tbody id="tabelBody"></tbody>
-    </table>
+        </thead>
+        <tbody id="reportTableBody"></tbody>
+      </table></div>
+    </section>
+  </main>
         </div>
       </div>
     </div>
   </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-    // Helper tanggal: offsetBulan 0 = bulan ini, -1 = bulan lalu, dst.
-    const tgl = (offsetBulan, hari) => {
-      const now = new Date();
-      return new Date(now.getFullYear(), now.getMonth() + offsetBulan, hari);
-    };
-
-    // Data contoh: terlaksana = true / false
-    const dataLaporan = [
-      { ket: 'Pemberian pupuk kompos',  kat: 'Pemupukan',  lok: 'Kebun Depan',    terlaksana: true,  tanggal: tgl(0, 1) },
-      { ket: 'Penyemprotan pestisida',  kat: 'Pestisida',  lok: 'Kebun Depan',    terlaksana: false, tanggal: tgl(0, 1) },
-      { ket: 'Servis pompa air',        kat: 'Peralatan',  lok: 'Kebun Depan',    terlaksana: true,  tanggal: tgl(0, 1) },
-      { ket: 'Pemasangan selang',       kat: 'Penyiraman', lok: 'Kebun Belakang', terlaksana: true,  tanggal: tgl(0, 1) },
-      { ket: 'Pemberian pupuk cair',    kat: 'Pemupukan',  lok: 'Greenhouse',     terlaksana: false, tanggal: tgl(-1, 15) },
-      { ket: 'Pemasangan sprinkler',    kat: 'Peralatan',  lok: 'Kebun Depan',    terlaksana: true,  tanggal: tgl(-1, 15) },
-      { ket: 'Pemberian pupuk NPK',     kat: 'Pemupukan',  lok: 'Kebun Belakang', terlaksana: false, tanggal: tgl(-3, 10) },
-    ];
-
-    const periodeEl  = document.getElementById('periode');
-    const kategoriEl = document.getElementById('kategori');
-    const lokasiEl   = document.getElementById('lokasi');
-    const tabelBody  = document.getElementById('tabelBody');
-
-    // Cek apakah tanggal masuk periode yang dipilih
-    function cocokPeriode(tanggal, periode) {
-      const now = new Date();
-      if (periode === 'semua') return true;
-      if (periode === 'tahun-ini') return tanggal.getFullYear() === now.getFullYear();
-
-      const target = periode === 'bulan-ini' ? tgl(0, 1) : tgl(-1, 1);
-      return tanggal.getFullYear() === target.getFullYear() &&
-             tanggal.getMonth() === target.getMonth();
-    }
-
-    function tampilkanLaporan() {
-      const periode  = periodeEl.value;
-      const kategori = kategoriEl.value;
-      const lokasi   = lokasiEl.value;
-
-      const hasil = dataLaporan.filter(d =>
-        cocokPeriode(d.tanggal, periode) &&
-        (kategori === 'semua' || d.kat === kategori) &&
-        (lokasi === 'semua' || d.lok === lokasi)
-      );
-
-      let isi = '';
-
-      if (hasil.length === 0) {
-        isi = '<tr><td colspan="5" class="text-center text-muted">Tidak ada data untuk filter ini.</td></tr>';
-      }
-
-      hasil.forEach(d => {
-        isi += `
-          <tr>
-            <td>${d.ket}</td>
-            <td>${d.kat}</td>
-            <td>${d.lok}</td>
-            <td class="text-center text-success fw-bold">${d.terlaksana ? '✓' : ''}</td>
-            <td class="text-center text-danger fw-bold">${d.terlaksana ? '' : '✓'}</td>
-          </tr>`;
-      });
-
-      tabelBody.innerHTML = isi;
-    }
-
-    // Filter diterapkan saat tombol Aplikasikan diklik
-    document.getElementById('btnAplikasikan').addEventListener('click', tampilkanLaporan);
-
-    // Tampilkan data awal sesuai pilihan default
-    tampilkanLaporan();
-  </script>
+<script src="app.js"></script>
 </body>
 </html>

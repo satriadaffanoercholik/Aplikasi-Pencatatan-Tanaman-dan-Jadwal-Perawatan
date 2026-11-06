@@ -2,59 +2,37 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dashboard</title>
+  <title>Data Master</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <style>
-    body {
-      background-color: #f8f9fa;
-    }
-    .navbar {
-      background: linear-gradient(to right, #383838, #797979);
-    }
-    .sidebar {
-      height: 100vh;
-      background: linear-gradient(to right, #383838, #797979);
-      color: white;
-    }
-   
-.sidebar .nav-link {
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 5px;
-}
-
-/* Warna menu saat diarahkan kursor atau aktif */
-.sidebar .nav-link:hover,
-.sidebar .nav-link.active {
-    background: linear-gradient(to right, #ffffff, #535355);
-    color: #198754;
-}
-
- .card {
-    margin-top: 20px; /* Jarak atas untuk kartu */
-}
-.footer {
-    background: linear-gradient(to right, #383838, #797979); /* Gradasi abu-abu saat hover */
-    color: blue;
-    padding: 20px;
-    text-align: center;
-}
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
-        <a class="navbar-brand text-white" href="#">DASHBOARD</a>
+        <a class="navbar-brand d-flex align-items-center text-white" href="#">
+          <img src="Logo.png" width="50" height="50" class="d-inline-block align-top me-2" alt="">
+          Aplikasi Pencatatan Tanaman</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span clas s="navbar-toggler-icon"></span>
         </button>
+         <form class="d-flex mx-auto" role="search" onsubmit="return false;">
+                    <input
+                        class="form-control me-2"
+                        type="search"
+                        placeholder="Search"
+                        aria-label="Search"
+                        style="width: 250px;"
+                    >
+                    <button class="btn btn-outline-light" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto"> 
                 <li class="nav-item">
                     <h4><a class="nav-link text-white" href="#">
-                      <i class="fas fa-bell"></i></a></li>
+                      <i class=""></i></a></li>
                 </li>
                 <h5><li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-white" href="#" 
@@ -76,7 +54,7 @@
                         </li>
 
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">
+                        <li><a class="dropdown-item" href="Login.html">
                             Keluar</a>
                         </li>
                         
@@ -95,23 +73,23 @@
     
     <ul class="nav flex-column">
       <li class="nav-item">
-        <a class="nav-link" href="#dashboard">
+        <a class="nav-link " href="Dashboard.html">
           Dashboard
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" href="#data-master">
+        <a class="nav-link" href="Data_master.html">
           Data Master
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#transaksi">
+        <a class="nav-link" href="Transaksi.html">
           Transaksi
         </a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="#laporan">
+        <a class="nav-link" href="Laporan.html">
           Laporan
         </a>
       </li>
@@ -121,216 +99,143 @@
   <div class="container mt-4">
     <div class="row">
       <div class="col-md-12">
-        <div class="card">
-          <div class="card-header">
-            <h3><b>Data Tanaman</b></h3>
           </div>
-          <div class="card-body">
-            <p>Data tanaman digunakan untuk mengetahui semua jenis, nama tanaman, dan tanggal ditanamnya tanaman tersebut</p>
+      <main class="main-content">
+    <h1 class="page-title">Data Master
+    </h1>
+    <div class="row g-3 mb-4">
+      <div class="col-md-4">
+        <div class="category-card">
+          <span class="symbol">🌱
+          </span>
+          <strong>Data Tanaman
+          </strong>
           </div>
-          <!-- Tombol atas -->
-    <div class="mb-3 d-flex gap-2">
-      <button id="btnTambah" class="btn btn-outline-dark btn-sm">[+ Tambah Data]</button>
-      <button class="btn btn-outline-dark btn-sm" data-bs-toggle="collapse" data-bs-target="#panelFilter">[Filter]</button>
-    </div>
-
-    <!-- Panel Filter (muncul saat tombol Filter diklik) -->
-    <div class="collapse mb-3" id="panelFilter">
-      <div class="card bg-secondary-subtle border-secondary">
-        <div class="card-body row g-2 align-items-center">
-          <div class="col-sm-5">
-            <input type="text" id="filterNama" class="form-control form-control-sm" placeholder="Cari nama tanaman...">
-          </div>
-          <div class="col-sm-4">
-            <select id="filterJenis" class="form-select form-select-sm"></select>
-          </div>
-          <div class="col-sm-3">
-            <button id="btnReset" class="btn btn-outline-dark btn-sm w-100">Reset</button>
-          </div>
+        </div>
+      <div class="col-md-4">
+        <div class="category-card">
+          <span class="symbol">🍃
+          </span>
+          <strong>Jenis Tanaman
+            </strong>
+          <div class="small-muted">Kategori diisi pada form tanaman
+            </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="category-card">
+          <span class="symbol">▤
+            </span>
+          <strong>Jenis Perawatan
+            </strong>
+          <div class="small-muted">Kelola daftar di bawah
+            </div>
         </div>
       </div>
     </div>
+    <section class="panel mb-4" id="form-tanaman">
+      <div class="panel-heading">
+        <span id="plantFormTitle">Tambah Tanaman
 
-    <!-- Tabel -->
-    <table class="table table-bordered border-dark align-middle">
-      <thead class="table-secondary">
-        <tr>
-          <th>ID</th>
-          <th>Nama</th>
-          <th>Jenis</th>
-          <th>Tgl Tanam</th>
-          <th class="text-center">Aksi</th>
-        </tr>
-      </thead>
-      <tbody id="tabelBody"></tbody>
-    </table>
+        </span>
+        <span class="small-muted">Formulir data tanaman
 
-  <!-- Modal Form Tanaman -->
-  <div class="modal fade" id="modalForm" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content border-dark">
-        <form id="formTanaman">
-          <div class="modal-header">
-            <h5 class="modal-title" id="judulForm">Form Tanaman (CRUD)</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-          </div>
-          <div class="modal-body">
-            <input type="hidden" id="idTanaman">
+        </span>
+      </div>
+      <div class="panel-body">
+        <form id="plantForm">
+          <input type="hidden" id="plantId">
+          <div class="row g-3">
+            <div class="col-md-4">
+              <label class="form-label" for="plantName">Nama Tanaman
 
-            <div class="mb-3">
-              <label for="nama" class="form-label">Nama:</label>
-              <input type="text" id="nama" class="form-control" required>
+              </label>
+              <input class="form-control" id="plantName" required placeholder="Contoh: Monstera">
             </div>
-            <div class="mb-3">
-              <label for="jenis" class="form-label">Jenis:</label>
-              <select id="jenis" class="form-select" required></select>
+            <div class="col-md-4">
+              <label class="form-label" for="plantType">Jenis Tanaman
+              </label>
+              <select class="form-control" id="plantType" required>
+                <option value="">Pilih Jenis
+                </option>
+                <option value="Hias">Hias
+                </option>
+                <option value="Buah">Buah
+                </option>
+                <option value="Sayur">Sayur
+                </option>
+              </select>
             </div>
-            <div class="mb-3">
-              <label for="tgl" class="form-label">Tgl Tanam:</label>
-              <input type="date" id="tgl" class="form-control" required>
+            <div class="col-md-4">
+              <label class="form-label" for="plantDate">Tanggal Tanam/Beli</label>
+              <input class="form-control" id="plantDate" type="date">
             </div>
-          </div>
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-outline-dark">Simpan</button>
-            <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Batal</button>
+            <div class="col-md-4">
+              <label class="form-label" for="plantLocation">Lokasi</label>
+              <select class="form-select" id="plantLocation" required>
+                <option value="">Pilih Lokasi</option>
+                <option value="Teras">Teras</option>
+                <option value="Rumah">halaman belakang</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label" for="plantCondition">Kondisi</label>
+              <select class="form-select" id="plantCondition">
+                <option>Baik</option>
+                <option>Sedang</option>
+                <option>Perlu Perawatan</option>
+              </select>
+            </div>
+            <div class="col-md-4 d-flex align-items-end gap-2">
+              <button class="btn btn-success" type="submit">Simpan</button>
+              <button class="btn btn-outline-secondary" id="cancelEdit" type="button">Batal</button>
+            </div>
           </div>
         </form>
       </div>
+    </section>
+    <section class="panel mb-4" data-searchable-table>
+      <div class="panel-heading">
+        <span>Daftar Tanaman</span>
+        <span class="small-muted">Edit atau hapus data</span>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Nama Tanaman</th>
+            <th>Jenis</th>
+            <th>Tanggal</th>
+            <th>Lokasi</th>
+            <th>Kondisi</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody id="plantTableBody">
+        </tbody>
+      </table>
     </div>
+    </section>
+    <section class="panel">
+      <div class="panel-heading">Kelola Jenis Perawatan</div>
+      <div class="panel-body">
+        <form class="d-flex gap-2 mb-3" 
+        id="careTypeForm">
+        <input class="form-control" id="newCareType" placeholder="Jenis perawatan baru" required>
+        <button class="btn btn-dark" type="submit">＋ Tambah</button>
+      </form>
+        <ul class="list-group" id="careTypeList">          
+        </ul>
+      </div>
+    </section>
+  </main>
         </div>
       </div>
     </div>
   </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-    const JENIS = ['Sayuran', 'Buah', 'Bunga', 'Tanaman Hias', 'Herbal'];
-
-    // Data awal (contoh)
-    let dataTanaman = [
-      { id: 1, nama: 'Cabai Rawit', jenis: 'Sayuran',      tgl: '2026-09-01' },
-      { id: 2, nama: 'Mangga',      jenis: 'Buah',         tgl: '2026-08-15' },
-      { id: 3, nama: 'Mawar',       jenis: 'Bunga',        tgl: '2026-09-20' },
-    ];
-    let idBerikutnya = 4;
-
-    const tabelBody   = document.getElementById('tabelBody');
-    const filterNama  = document.getElementById('filterNama');
-    const filterJenis = document.getElementById('filterJenis');
-    const form        = document.getElementById('formTanaman');
-    const modal       = new bootstrap.Modal(document.getElementById('modalForm'));
-
-    // Isi pilihan dropdown dari array JENIS
-    filterJenis.innerHTML = '<option value="">Semua Jenis</option>' +
-      JENIS.map(j => `<option value="${j}">${j}</option>`).join('');
-    document.getElementById('jenis').innerHTML =
-      '<option value="" disabled selected>-- Pilih jenis --</option>' +
-      JENIS.map(j => `<option value="${j}">${j}</option>`).join('');
-
-    // Cegah teks input terbaca sebagai kode HTML
-    const esc = s => String(s).replace(/[&<>"']/g, c =>
-      ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-
-    const formatTgl = t => new Date(t + 'T00:00:00').toLocaleDateString('id-ID',
-      { day: '2-digit', month: 'short', year: 'numeric' });
-
-    // READ: tampilkan data (sudah disaring filter)
-    function tampilkan() {
-      const kata  = filterNama.value.toLowerCase();
-      const jenis = filterJenis.value;
-
-      const hasil = dataTanaman.filter(d =>
-        d.nama.toLowerCase().includes(kata) && (jenis === '' || d.jenis === jenis));
-
-      if (hasil.length === 0) {
-        tabelBody.innerHTML =
-          '<tr><td colspan="5" class="text-center text-muted">Tidak ada data.</td></tr>';
-        return;
-      }
-
-      tabelBody.innerHTML = hasil.map(d => `
-        <tr>
-          <td>${d.id}</td>
-          <td>${esc(d.nama)}</td>
-          <td>${esc(d.jenis)}</td>
-          <td>${formatTgl(d.tgl)}</td>
-          <td class="text-center">
-            <a href="#" class="btn-edit text-decoration-none" data-id="${d.id}">Edit</a> |
-            <a href="#" class="btn-hapus text-decoration-none text-danger" data-id="${d.id}">Hapus</a>
-          </td>
-        </tr>`).join('');
-    }
-
-    // Buka form: kosong untuk tambah, terisi untuk edit
-    function bukaForm(data) {
-      form.reset();
-      document.getElementById('idTanaman').value = data ? data.id : '';
-      document.getElementById('judulForm').textContent =
-        data ? 'Edit Tanaman' : 'Tambah Tanaman';
-      if (data) {
-        document.getElementById('nama').value  = data.nama;
-        document.getElementById('jenis').value = data.jenis;
-        document.getElementById('tgl').value   = data.tgl;
-      }
-      modal.show();
-    }
-
-    // CREATE: tombol Tambah Data
-    document.getElementById('btnTambah').addEventListener('click', () => bukaForm(null));
-
-    // CREATE & UPDATE: tombol Simpan
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const id = document.getElementById('idTanaman').value;
-      const baru = {
-        nama:  document.getElementById('nama').value.trim(),
-        jenis: document.getElementById('jenis').value,
-        tgl:   document.getElementById('tgl').value,
-      };
-
-      if (id) {
-        // UPDATE: ganti data dengan ID yang sama
-        dataTanaman = dataTanaman.map(d => d.id == id ? { ...d, ...baru } : d);
-      } else {
-        // CREATE: tambah data dengan ID baru
-        dataTanaman.push({ id: idBerikutnya++, ...baru });
-      }
-
-      modal.hide();
-      tampilkan();
-    });
-
-    // Edit dan Hapus (event delegation karena barisnya dibuat lewat JS)
-    tabelBody.addEventListener('click', function (e) {
-      const edit  = e.target.closest('.btn-edit');
-      const hapus = e.target.closest('.btn-hapus');
-
-      if (edit) {
-        e.preventDefault();
-        bukaForm(dataTanaman.find(d => d.id == edit.dataset.id));
-      }
-
-      if (hapus) {
-        e.preventDefault();
-        const d = dataTanaman.find(d => d.id == hapus.dataset.id);
-        // DELETE: minta konfirmasi dulu
-        if (confirm(`Hapus tanaman "${d.nama}"?`)) {
-          dataTanaman = dataTanaman.filter(x => x.id != d.id);
-          tampilkan();
-        }
-      }
-    });
-
-    // Filter langsung bekerja saat mengetik / memilih
-    filterNama.addEventListener('input', tampilkan);
-    filterJenis.addEventListener('change', tampilkan);
-    document.getElementById('btnReset').addEventListener('click', () => {
-      filterNama.value = '';
-      filterJenis.value = '';
-      tampilkan();
-    });
-
-    tampilkan();
-  </script> 
+ <script src="app.js"></script>
 </body>
 </html>
